@@ -1,8 +1,0 @@
-15:43:30 --- Saving Webpage --- https://www.reddit.com/r/AskReddit/
-15:44:09 --- Save Completed --- https://www.reddit.com/r/AskReddit/
-15:44:09 --- Saving Webpage --- https://www.reddit.com/r/worldnews/
-15:44:49 --- Save Completed --- https://www.reddit.com/r/worldnews/
-09:34:16 --- Saving Webpage --- https://www.reddit.com/r/AskReddit/
-09:34:47 --- Save Failed --- https://www.reddit.com/r/AskReddit/
-09:34:47 --- Saving Webpage --- https://www.reddit.com/r/worldnews/
-09:34:55 --- Save Failed --- https://www.reddit.com/r/worldnews/

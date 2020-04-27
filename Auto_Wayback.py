@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
+from datetime import datetime
 
 
 def save_webpage(url: str) -> None:
@@ -18,19 +19,19 @@ def save_webpage(url: str) -> None:
             break
         except:
             pass
-        print('Waiting...')
+        print(f'Archiving: {url}')
     driver.close()
 
 
 def activity_log(action: str, url: str) -> None:
-    with open('wayback_log.txt', 'a') as log_file:
+    with open('./Auto_Wayback_Docs/wayback_log.txt', 'a') as log_file:
         t = time.localtime()
         current_time = time.strftime("%H:%M:%S", t)
         log_file.write(f'{current_time} --- {action} --- {url}\n')
 
 
 def archive_from_list() -> None:
-    with open('archive_requests.txt') as f:
+    with open('./Auto_Wayback_Docs/archive_requests.txt') as f:
         archive_list = f.readlines()
 
     for url in archive_list:
@@ -42,4 +43,16 @@ def archive_from_list() -> None:
         except:
             activity_log('Save Failed', url)
 
-archive_from_list()
+
+def auto_archive(frequency: int, stop: datetime) -> None:
+    if frequency < 10:
+        frequency = 10
+
+    while datetime.now() < stop:
+        archive_from_list()
+        print(f'Archiving Complete at {datetime.now()}. Next Archive in {frequency} minutes')
+        time.sleep(frequency * 60)
+
+
+if __name__ == "__main__":
+    auto_archive(15, datetime(2020, 4, 27, 12))
